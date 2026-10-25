@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "dinojam",
+  "name": "DinoJam",
+  "version": "2.1.0",
+  "entry": "index.html",
+  "category": "puzzle",
+  "age": "5+",
+  "cover": "cover.png",
+  "description": "Liberta veículos na direção das setas, transporta passageiros por cor e resolve 30 parques cheios.",
+  "offline": true,
+  "multiplayer": false,
+  "permissions": [
+    "storage"
+  ],
+  "languages": [
+    "pt-PT",
+    "pt-BR",
+    "en",
+    "fr",
+    "de",
+    "es",
+    "pl"
+  ],
+  "assets": [
+    "index.html",
+    "style.css",
+    "game.js",
+    "cover.png",
+    "sdk/dinoplay-game-sdk.js"
+  ],
+  "license": "MIT",
+  "author": "DinoPlay Team"
+}

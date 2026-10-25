@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:"
+    />
+    <title>DinoJam</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <section id="home" class="screen open home-screen">
+        <div class="home-card">
+          <img src="cover.png" alt="DinoJam" />
+          <p id="tagline">Liberta os carros e transporta os dinos!</p>
+          <button id="play" class="primary">JOGAR</button
+          ><button id="levelsButton" class="secondary">ESCOLHER NÍVEL</button>
+        </div>
+      </section>
+      <section id="levels" class="screen">
+        <div class="panel levels-panel">
+          <button id="closeLevels" class="close">×</button>
+          <p class="eyebrow">DINOJAM</p>
+          <h1 id="levelsTitle">Escolhe um nível</h1>
+          <div id="levelGrid" class="level-grid"></div>
+        </div>
+      </section>
+      <section id="game" class="game-screen">
+        <header class="hud">
+          <button id="back" class="icon-button">‹</button
+          ><button id="settings" class="icon-button">⚙️</button>
+          <div class="level-badge">
+            <small id="levelWord">NÍVEL</small><b id="levelNumber">1</b>
+          </div>
+          <div class="score-badge">
+            <small id="queueWord">FILA</small><b id="remaining">0</b>
+          </div>
+          <button id="hint" class="icon-button">💡</button
+          ><button id="restart" class="icon-button">↻</button
+          ><button id="sound" class="icon-button">🔊</button>
+        </header>
+        <div id="world" class="world theme-city">
+          <div class="scene">
+            <span id="sceneIcon">🏙️</span><b id="sceneName">Cidade Dino</b>
+          </div>
+          <div id="passengerLine" class="passenger-line"></div>
+          <div class="boarding">
+            <div id="boardingSlots" class="boarding-slots"></div>
+            <div class="road-strip"></div>
+          </div>
+          <div id="parkingBoard" class="parking-board"></div>
+        </div>
+        <div id="toast" class="toast"></div>
+      </section>
+      <section id="result" class="screen">
+        <div class="panel result-panel">
+          <div class="result-mascot">🦖🚗</div>
+          <p id="resultEyebrow" class="eyebrow">NÍVEL CONCLUÍDO</p>
+          <h1 id="resultTitle">Parque resolvido!</h1>
+          <div id="stars" class="stars">★★★</div>
+          <p>
+            <span id="finalScoreLabel">Pontuação</span> <b id="finalScore">0</b>
+          </p>
+          <button id="next" class="primary">PRÓXIMO NÍVEL</button
+          ><button id="retry" class="secondary">JOGAR NOVAMENTE</button
+          ><button id="resultLevels" class="text-button">ESCOLHER NÍVEL</button>
+        </div>
+      </section>
+    </main>
+    <script src="sdk/dinoplay-game-sdk.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
