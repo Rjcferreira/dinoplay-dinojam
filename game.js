@@ -9,17 +9,29 @@
       { id: "cyan", hex: "#35c5d4" },
       { id: "purple", hex: "#9b62d7" },
       { id: "pink", hex: "#ef72b3" },
+      { id: "orange", hex: "#f28a2e" },
+      { id: "lime", hex: "#9ccc3c" },
     ],
+    vehicleTypes = [
+      { id: "moto", capacity: 1, unlock: 0, weight: 18 },
+      { id: "car", capacity: 2, unlock: 0, weight: 46 },
+      { id: "van", capacity: 4, unlock: 4, weight: 25 },
+      { id: "bus", capacity: 6, unlock: 9, weight: 11 },
+    ],
+    dinoSpecies = ["rex", "tri", "stego", "brachio", "raptor", "ankylo"],
     dirs = ["U", "R", "D", "L"],
     arrows = { U: "↑", R: "→", D: "↓", L: "←" },
     themes = [
-      { id: "city", icon: "🏙️", name: "Cidade Dino" },
-      { id: "park", icon: "🌳", name: "Parque Jurássico" },
-      { id: "fair", icon: "🎡", name: "Feira Dino" },
-      { id: "zoo", icon: "🦒", name: "Zoo Aventura" },
-      { id: "ocean", icon: "🐚", name: "Mundo Submarino" },
-      { id: "desert", icon: "🏜️", name: "Vale Fóssil" },
-      { id: "snow", icon: "❄️", name: "Montanha Gelada" },
+      { id: "city", icon: "🏙️" },
+      { id: "park", icon: "🌳" },
+      { id: "fair", icon: "🎡" },
+      { id: "zoo", icon: "🦒" },
+      { id: "ocean", icon: "🐚" },
+      { id: "desert", icon: "🏜️" },
+      { id: "snow", icon: "❄️" },
+      { id: "jungle", icon: "🌋" },
+      { id: "space", icon: "🪐" },
+      { id: "candy", icon: "🍭" },
     ];
   const base = {
       tagline: "Liberta os carros e transporta os dinos!",
@@ -37,6 +49,23 @@
       full: "Os lugares de espera estão cheios",
       hint: "Procura um carro livre da cor do primeiro passageiro",
       locked: "Completa o nível anterior",
+      gameType: "DINOJAM",
+      back: "Voltar",
+      settings: "Ajuda",
+      hintButton: "Mostrar uma dica",
+      restart: "Reiniciar nível",
+      soundOn: "Desligar som",
+      soundOff: "Ligar som",
+      scene_city: "Cidade Dino",
+      scene_park: "Parque Jurássico",
+      scene_fair: "Feira Dino",
+      scene_zoo: "Zoo Aventura",
+      scene_ocean: "Mundo Submarino",
+      scene_desert: "Vale Fóssil",
+      scene_snow: "Montanha Gelada",
+      scene_jungle: "Selva Vulcânica",
+      scene_space: "Estação Espacial",
+      scene_candy: "Vila dos Doces",
     },
     translations = {
       "pt-PT": base,
@@ -48,6 +77,11 @@
         level: "FASE",
         complete: "FASE CONCLUÍDA",
         next: "PRÓXIMA FASE",
+        blocked: "Esse carro está bloqueado!",
+        full: "As vagas de espera estão cheias",
+        hint: "Procure um carro livre da cor do primeiro passageiro",
+        locked: "Complete a fase anterior",
+        gameType: "DINOJAM",
       },
       en: {
         tagline: "Free the cars and carry the dinos!",
@@ -65,6 +99,23 @@
         full: "The waiting spaces are full",
         hint: "Find a free car matching the first passenger",
         locked: "Complete the previous level",
+        gameType: "DINOJAM",
+        back: "Back",
+        settings: "Help",
+        hintButton: "Show a hint",
+        restart: "Restart level",
+        soundOn: "Turn sound off",
+        soundOff: "Turn sound on",
+        scene_city: "Dino City",
+        scene_park: "Jurassic Park",
+        scene_fair: "Dino Fair",
+        scene_zoo: "Adventure Zoo",
+        scene_ocean: "Underwater World",
+        scene_desert: "Fossil Valley",
+        scene_snow: "Frozen Mountain",
+        scene_jungle: "Volcanic Jungle",
+        scene_space: "Space Station",
+        scene_candy: "Candy Village",
       },
       fr: {
         ...base,
@@ -83,6 +134,23 @@
         full: "Les places d’attente sont pleines",
         hint: "Trouve une voiture libre de la couleur du premier passager",
         locked: "Termine le niveau précédent",
+        gameType: "DINOJAM",
+        back: "Retour",
+        settings: "Aide",
+        hintButton: "Afficher un indice",
+        restart: "Recommencer le niveau",
+        soundOn: "Couper le son",
+        soundOff: "Activer le son",
+        scene_city: "Dino Ville",
+        scene_park: "Parc Jurassique",
+        scene_fair: "Fête des Dinos",
+        scene_zoo: "Zoo Aventure",
+        scene_ocean: "Monde Sous-marin",
+        scene_desert: "Vallée des Fossiles",
+        scene_snow: "Montagne Gelée",
+        scene_jungle: "Jungle Volcanique",
+        scene_space: "Station Spatiale",
+        scene_candy: "Village des Bonbons",
       },
       de: {
         ...base,
@@ -101,6 +169,23 @@
         full: "Die Warteplätze sind voll",
         hint: "Finde ein freies Auto in der Farbe des ersten Fahrgasts",
         locked: "Schließe das vorige Level ab",
+        gameType: "DINOJAM",
+        back: "Zurück",
+        settings: "Hilfe",
+        hintButton: "Hinweis anzeigen",
+        restart: "Level neu starten",
+        soundOn: "Ton ausschalten",
+        soundOff: "Ton einschalten",
+        scene_city: "Dino-Stadt",
+        scene_park: "Jurassic-Park",
+        scene_fair: "Dino-Jahrmarkt",
+        scene_zoo: "Abenteuer-Zoo",
+        scene_ocean: "Unterwasserwelt",
+        scene_desert: "Fossiliental",
+        scene_snow: "Eisberg",
+        scene_jungle: "Vulkan-Dschungel",
+        scene_space: "Raumstation",
+        scene_candy: "Süßigkeitendorf",
       },
       es: {
         ...base,
@@ -119,6 +204,23 @@
         full: "Los espacios de espera están llenos",
         hint: "Busca un coche libre del color del primer pasajero",
         locked: "Completa el nivel anterior",
+        gameType: "DINOJAM",
+        back: "Volver",
+        settings: "Ayuda",
+        hintButton: "Mostrar una pista",
+        restart: "Reiniciar nivel",
+        soundOn: "Desactivar sonido",
+        soundOff: "Activar sonido",
+        scene_city: "Ciudad Dino",
+        scene_park: "Parque Jurásico",
+        scene_fair: "Feria Dino",
+        scene_zoo: "Zoo Aventura",
+        scene_ocean: "Mundo Submarino",
+        scene_desert: "Valle Fósil",
+        scene_snow: "Montaña Helada",
+        scene_jungle: "Selva Volcánica",
+        scene_space: "Estación Espacial",
+        scene_candy: "Villa de los Dulces",
       },
       pl: {
         ...base,
@@ -137,9 +239,27 @@
         full: "Miejsca oczekiwania są pełne",
         hint: "Znajdź wolny samochód w kolorze pierwszego pasażera",
         locked: "Ukończ poprzedni poziom",
+        gameType: "DINOJAM",
+        back: "Wstecz",
+        settings: "Pomoc",
+        hintButton: "Pokaż podpowiedź",
+        restart: "Uruchom poziom ponownie",
+        soundOn: "Wyłącz dźwięk",
+        soundOff: "Włącz dźwięk",
+        scene_city: "Dino Miasto",
+        scene_park: "Park Jurajski",
+        scene_fair: "Dino Wesołe Miasteczko",
+        scene_zoo: "Zoo Przygód",
+        scene_ocean: "Podwodny Świat",
+        scene_desert: "Dolina Skamieniałości",
+        scene_snow: "Lodowa Góra",
+        scene_jungle: "Wulkaniczna Dżungla",
+        scene_space: "Stacja Kosmiczna",
+        scene_candy: "Wioska Słodyczy",
       },
     };
   let text = translations.en,
+    TOTAL_LEVELS = 200,
     levelIndex = 0,
     unlocked = 1,
     best = {},
@@ -172,9 +292,10 @@
   }
   function generateLevel(index) {
     const random = rng(9021 + index * 811),
-      size = Math.min(10, 5 + Math.floor(index / 5)),
-      target = Math.min(size * size - 4, 12 + index * 2),
-      colorCount = Math.min(7, 3 + Math.floor(index / 6)),
+      chapter = Math.floor(index / 20),
+      size = Math.min(10, 5 + Math.floor(index / 20)),
+      target = Math.min(size * size - 4, 12 + Math.floor(index / 5) + (index % 4)),
+      colorCount = Math.min(palette.length, 3 + Math.floor(index / 18)),
       list = [];
     boardSize = size;
     const cells = [];
@@ -188,13 +309,21 @@
         choices = dirs.filter((_, i) => distances[i] === min),
         dir = choices[Math.floor(random() * choices.length)],
         color = palette[Math.floor(random() * colorCount)];
+      const availableTypes = vehicleTypes.filter((type) => index >= type.unlock);
+      let pick = random() * availableTypes.reduce((sum, type) => sum + type.weight, 0);
+      const type = list.length < availableTypes.length
+        ? availableTypes[list.length]
+        : availableTypes.find((candidate) => (pick -= candidate.weight) <= 0) || availableTypes[0];
       list.push({
         id: `${index}-${list.length}`,
         x: cell.x,
         y: cell.y,
         dir,
         color,
-        mystery: index > 20 && random() < 0.14,
+        type: type.id,
+        capacity: type.capacity,
+        loaded: 0,
+        mystery: index > 20 && random() < Math.min(0.24, 0.08 + chapter * 0.015),
       });
     }
     const work = list.map((c) => ({ ...c })),
@@ -206,6 +335,8 @@
           dist = [car.y, size - 1 - car.x, size - 1 - car.y, car.x],
           i = dist.indexOf(Math.min(...dist));
         car.dir = dirs[i];
+        const original = list.find((item) => item.id === car.id);
+        if (original) original.dir = car.dir;
         free = [car];
       }
       const car = free[Math.floor(random() * free.length)];
@@ -219,11 +350,11 @@
       size,
       cars: list,
       order,
-      bays: index < 8 ? 4 : index < 20 ? 5 : 6,
-      theme: themes[Math.floor(index / 5) % themes.length],
+      bays: Math.min(6, 4 + Math.floor(index / 40)),
+      theme: themes[index % themes.length],
     };
   }
-  const levels = Array.from({ length: 30 }, (_, i) => generateLevel(i));
+  const levels = Array.from({ length: TOTAL_LEVELS }, (_, i) => generateLevel(i));
   function tone(f, d = 0.08) {
     if (!soundOn) return;
     try {
@@ -266,6 +397,38 @@
       ["resultLevels", "levels"],
     ])
       $(id).textContent = text[key];
+    $("homeLevelLabel").textContent = text.level;
+    $("homeKicker").innerHTML = `<span>🦖</span> ${text.gameType}`;
+    $("play").innerHTML = `<span>▶</span> ${text.play}`;
+    $("levelsButton").innerHTML = `<span>▦</span> ${text.levels}`;
+    $("resultLevelLabel").textContent = text.level;
+    $("next").innerHTML = `<span>▶</span> ${text.next}`;
+    $("retry").innerHTML = `<span>↻</span> ${text.retry}`;
+    $("resultLevels").innerHTML = `<span>▦</span> ${text.levels}`;
+    for (const [id, key] of [
+      ["back", "back"],
+      ["settings", "settings"],
+      ["hint", "hintButton"],
+      ["restart", "restart"],
+    ]) {
+      $(id).title = text[key];
+      $(id).setAttribute("aria-label", text[key]);
+    }
+    updateSoundLabel();
+  }
+  function updateSoundLabel() {
+    const label = soundOn ? text.soundOn : text.soundOff;
+    $("sound").title = label;
+    $("sound").setAttribute("aria-label", label);
+  }
+  function updateHomeProgress() {
+    const completed = Object.keys(best).filter((key) => best[key]?.stars).length,
+      stars = Object.values(best).reduce((sum, item) => sum + (Number(item?.stars) || 0), 0),
+      nextLevel = Math.min(Math.max(1, unlocked), levels.length);
+    $("homeProgressText").textContent = `${nextLevel} / ${levels.length}`;
+    $("homeProgressBar").style.width = `${Math.max(3, (completed / levels.length) * 100)}%`;
+    $("homeStars").textContent = stars;
+    $("homeMaxStars").textContent = levels.length * 3;
   }
   function buildGrid() {
     const grid = $("levelGrid");
@@ -287,11 +450,13 @@
     levelData = levels[levelIndex];
     boardSize = levelData.size;
     cars = levelData.cars.map((c) => ({ ...c }));
-    passengers = levelData.order.flatMap((car) => [
-      car.color,
-      car.color,
-      car.color,
-    ]);
+    let passengerNumber = 0;
+    passengers = levelData.order.flatMap((car) =>
+      Array.from({ length: car.capacity }, () => ({
+        ...car.color,
+        species: dinoSpecies[(levelIndex + passengerNumber++) % dinoSpecies.length],
+      })),
+    );
     waiting = [];
     score = 1000 + levelIndex * 120;
     mistakes = 0;
@@ -300,7 +465,8 @@
     $("levelNumber").textContent = levelIndex + 1;
     $("world").className = `world theme-${levelData.theme.id}`;
     $("sceneIcon").textContent = levelData.theme.icon;
-    $("sceneName").textContent = levelData.theme.name;
+    $("sceneName").textContent = text[`scene_${levelData.theme.id}`] || translations.en[`scene_${levelData.theme.id}`];
+    $("result").className = `screen theme-${levelData.theme.id}`;
     show(null);
     render();
     tone(440);
@@ -316,9 +482,15 @@
     line.innerHTML = "";
     passengers.slice(0, 28).forEach((color, i) => {
       const p = document.createElement("span");
-      p.className = `passenger ${i === 0 ? "next" : ""}`;
+      p.className = `passenger dino-${color.species} ${i === 0 ? "next" : ""}`;
       p.style.setProperty("--person", color.hex);
-      p.innerHTML = '<i class="dino-eye"></i><i class="dino-snout"></i><i class="dino-tail"></i>';
+      p.innerHTML = `
+        <i class="dino-tail"></i><i class="dino-neck"></i><i class="dino-head"></i>
+        <i class="dino-eye eye-a"></i><i class="dino-eye eye-b"></i>
+        <i class="dino-snout"></i><i class="dino-mouth"></i><i class="dino-belly"></i>
+        <i class="dino-arm arm-a"></i><i class="dino-arm arm-b"></i>
+        <i class="dino-mark mark-a"></i><i class="dino-mark mark-b"></i><i class="dino-mark mark-c"></i>
+      `;
       line.appendChild(p);
     });
     if (passengers.length > 28) {
@@ -335,11 +507,13 @@
       const slot = document.createElement("div");
       slot.className = "slot";
       if (waiting[i]) {
+        slot.classList.add("occupied");
+        slot.style.setProperty("--slot-color", waiting[i].color.hex);
         const mini = document.createElement("span");
-        mini.className = "mini-car";
+        mini.className = `mini-car vehicle-${waiting[i].type}`;
         mini.dataset.parkedId = waiting[i].id;
         mini.style.setProperty("--car", waiting[i].color.hex);
-        mini.innerHTML = '<i class="mini-window"></i><i class="wheel wheel-fl"></i><i class="wheel wheel-fr"></i><i class="wheel wheel-rl"></i><i class="wheel wheel-rr"></i>';
+        mini.innerHTML = `<i class="vehicle-roof"></i><i class="vehicle-glass glass-front"></i><i class="vehicle-glass glass-rear"></i><i class="wheel wheel-fl"></i><i class="wheel wheel-fr"></i><i class="wheel wheel-rl"></i><i class="wheel wheel-rr"></i><i class="vehicle-light light-l"></i><i class="vehicle-light light-r"></i><b class="capacity">${waiting[i].loaded}/${waiting[i].capacity}</b>`;
         slot.appendChild(mini);
       }
       box.appendChild(slot);
@@ -352,11 +526,20 @@
       const b = document.createElement("button"),
         horizontal = car.dir === "L" || car.dir === "R",
         w = 100 / boardSize;
-      b.className = `car ${horizontal ? "horizontal" : ""} ${car.mystery ? "mystery" : ""}`;
+      b.className = `car vehicle-${car.type} ${horizontal ? "horizontal" : ""} ${car.mystery ? "mystery" : ""}`;
       b.dataset.id = car.id;
       b.style.cssText += `--car:${car.color.hex};--x:${car.x * w + w * 0.21}%;--y:${car.y * w + w * 0.03}%;--cw:${w * 0.58}%;--ch:${w * 0.94}%;`;
       if (horizontal) b.style.rotate = "90deg";
-      b.innerHTML = `<i class="car-window front"></i><i class="car-window rear"></i><i class="wheel wheel-fl"></i><i class="wheel wheel-fr"></i><i class="wheel wheel-rl"></i><i class="wheel wheel-rr"></i><i class="car-lights"></i><span class="car-arrow">${arrows[car.dir]}</span>`;
+      b.innerHTML = `
+        <i class="vehicle-bumper bumper-front"></i><i class="vehicle-bumper bumper-rear"></i>
+        <i class="vehicle-roof"></i><i class="vehicle-glass glass-front"></i><i class="vehicle-glass glass-rear"></i>
+        <i class="vehicle-glass glass-side side-a"></i><i class="vehicle-glass glass-side side-b"></i>
+        <i class="vehicle-door door-a"></i><i class="vehicle-door door-b"></i>
+        <i class="wheel wheel-fl"></i><i class="wheel wheel-fr"></i><i class="wheel wheel-rl"></i><i class="wheel wheel-rr"></i>
+        <i class="vehicle-light light-l"></i><i class="vehicle-light light-r"></i><i class="vehicle-grille"></i>
+        <span class="vehicle-mark">${car.type === "van" ? "VAN" : car.type === "bus" ? "DINO BUS" : ""}</span>
+        <b class="seat-count">${car.capacity}</b><span class="car-arrow">${arrows[car.dir]}</span>
+      `;
       b.onclick = () => selectCar(car.id);
       board.appendChild(b);
     });
@@ -395,6 +578,11 @@
       return;
     }
     if (waiting.length >= levelData.bays) {
+      animating = true;
+      await processWaiting();
+      animating = false;
+    }
+    if (waiting.length >= levelData.bays) {
       mistakes++;
       score = Math.max(0, score - 40);
       toast(text.full);
@@ -419,7 +607,7 @@
     while (
       passengers.length &&
       passengers[0].id === car.color.id &&
-      count < 3
+      car.loaded < car.capacity
     ) {
       const passenger = document.querySelector(".passenger.next");
       const parked = document.querySelector(`[data-parked-id="${car.id}"]`);
@@ -428,15 +616,20 @@
       }
       passengers.shift();
       count++;
+      car.loaded++;
       renderPassengers();
+      renderSlots();
       $("remaining").textContent = passengers.length;
     }
     score += count * 100;
-    const parked = document.querySelector(`[data-parked-id="${car.id}"]`);
-    if (parked) {
-      parked.classList.add("driving-out");
-      await sleep(620);
+    if (car.loaded >= car.capacity) {
+      const parked = document.querySelector(`[data-parked-id="${car.id}"]`);
+      if (parked) {
+        parked.classList.add("driving-out");
+        await sleep(720);
+      }
     }
+    return { full: car.loaded >= car.capacity, boarded: count };
   }
   async function processWaiting() {
     let moved = true;
@@ -445,10 +638,10 @@
       const i = waiting.findIndex((c) => c.color.id === passengers[0].id);
       if (i >= 0) {
         const car = waiting[i];
-        await boardCar(car);
-        waiting.splice(i, 1);
+        const result = await boardCar(car);
+        if (result.full) waiting.splice(i, 1);
         renderSlots();
-        moved = true;
+        moved = result.boarded > 0;
       }
     }
   }
@@ -461,9 +654,13 @@
       best[levelIndex] = { score, stars: Math.max(stars, old?.stars || 0) };
     unlocked = Math.max(unlocked, Math.min(levels.length, levelIndex + 2));
     await save();
+    updateHomeProgress();
     $("stars").textContent = "★".repeat(stars) + "☆".repeat(3 - stars);
     $("finalScore").textContent = score;
-    $("next").style.display = levelIndex < 29 ? "block" : "none";
+    $("resultLevelNumber").textContent = levelIndex + 1;
+    $("resultSceneIcon").textContent = levelData.theme.icon;
+    $("resultSceneName").textContent = text[`scene_${levelData.theme.id}`] || translations.en[`scene_${levelData.theme.id}`];
+    $("next").style.display = levelIndex < levels.length - 1 ? "block" : "none";
     setTimeout(() => show("result"), 450);
     tone(784, 0.2);
   }
@@ -490,13 +687,14 @@
     toast(text.hint);
   }
   $("play").onclick = () => {
-    levelIndex = Math.min(unlocked - 1, 29);
+    levelIndex = Math.min(unlocked - 1, levels.length - 1);
     loadLevel();
   };
   $("levelsButton").onclick = openLevels;
   $("closeLevels").onclick = () => show("home");
   $("back").onclick = () => {
     running = false;
+    document.querySelectorAll(".parking-flight,.passenger-flight").forEach((item) => item.remove());
     document.body.classList.remove("playing");
     show("home");
   };
@@ -506,36 +704,57 @@
   $("sound").onclick = () => {
     soundOn = !soundOn;
     $("sound").textContent = soundOn ? "🔊" : "🔇";
+    updateSoundLabel();
     tone(440);
   };
   $("next").onclick = () => {
-    levelIndex = Math.min(29, levelIndex + 1);
+    levelIndex = Math.min(levels.length - 1, levelIndex + 1);
     loadLevel();
   };
   $("retry").onclick = loadLevel;
   $("resultLevels").onclick = openLevels;
   async function start() {
-    let language = "en";
+    let language = new URLSearchParams(location.search).get("lang") || "en";
     try {
       const ctx = await DinoPlay.ready();
       language = ctx.language || "en";
       const saved = await DinoPlay.storage.get("dinojam-progress-v2");
       if (saved) {
-        unlocked = Math.max(1, Number(saved.unlocked) || 1);
+        unlocked = Math.min(levels.length, Math.max(1, Number(saved.unlocked) || 1));
         best = saved.best || {};
       }
     } catch {
       try {
         const saved = JSON.parse(localStorage.getItem("dinojam-progress-v2"));
         if (saved) {
-          unlocked = Math.max(1, Number(saved.unlocked) || 1);
+          unlocked = Math.min(levels.length, Math.max(1, Number(saved.unlocked) || 1));
           best = saved.best || {};
         }
       } catch {}
     }
-    text = translations[language] || translations.en;
+    const normalized = String(language || "en").replace("_", "-").toLowerCase();
+    const languageKey = normalized.startsWith("pt-br")
+      ? "pt-BR"
+      : normalized.startsWith("pt")
+        ? "pt-PT"
+        : ["en", "fr", "de", "es", "pl"].find((code) => normalized.startsWith(code)) || "en";
+    text = translations[languageKey] || translations.en;
+    document.documentElement.lang = languageKey;
     translate();
+    updateHomeProgress();
     buildGrid();
+    if ((location.hostname === "localhost" || location.hostname === "127.0.0.1") && new URLSearchParams(location.search).get("screen") === "result") {
+      levelIndex = Math.min(10, levels.length - 1);
+      levelData = levels[levelIndex];
+      $("result").className = `screen theme-${levelData.theme.id}`;
+      $("resultLevelNumber").textContent = levelIndex + 1;
+      $("resultSceneIcon").textContent = levelData.theme.icon;
+      $("resultSceneName").textContent = text[`scene_${levelData.theme.id}`] || translations.en[`scene_${levelData.theme.id}`];
+      $("stars").textContent = "★★★";
+      $("finalScore").textContent = "8040";
+      $("next").style.display = "flex";
+      show("result");
+    }
   }
   start();
 })();

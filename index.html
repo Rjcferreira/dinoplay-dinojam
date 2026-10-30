@@ -17,10 +17,24 @@
     <main id="app">
       <section id="home" class="screen open home-screen">
         <div class="home-card">
-          <img src="cover.png" alt="DinoJam" />
-          <p id="tagline">Liberta os carros e transporta os dinos!</p>
-          <button id="play" class="primary">JOGAR</button
-          ><button id="levelsButton" class="secondary">ESCOLHER NÍVEL</button>
+          <div class="home-visual">
+            <img src="cover.png" alt="DinoJam" />
+            <span class="home-age">5+</span>
+          </div>
+          <div class="home-content">
+            <div id="homeKicker" class="home-kicker"><span>🦖</span> PUZZLE DINO</div>
+            <p id="tagline">Liberta os carros e transporta os dinos!</p>
+            <div class="home-progress">
+              <div class="home-progress-copy">
+                <span id="homeLevelLabel">NÍVEL</span>
+                <b id="homeProgressText">1 / 200</b>
+              </div>
+              <div class="home-progress-track"><i id="homeProgressBar"></i></div>
+              <small><span>★</span> <b id="homeStars">0</b> / <b id="homeMaxStars">600</b></small>
+            </div>
+            <button id="play" class="primary"><span>▶</span> JOGAR</button
+            ><button id="levelsButton" class="secondary"><span>▦</span> ESCOLHER NÍVEL</button>
+          </div>
         </div>
       </section>
       <section id="levels" class="screen">
@@ -60,16 +74,22 @@
       </section>
       <section id="result" class="screen">
         <div class="panel result-panel">
-          <div class="result-mascot">🦖🚗</div>
+          <div class="result-hero">
+            <img src="assets/sprites/dino-triceratops.png" alt="" />
+            <span class="result-sparkles">✦</span>
+            <img src="assets/sprites/vehicle-car.png" alt="" />
+          </div>
+          <div class="result-level-pill"><span id="resultLevelLabel">NÍVEL</span> <b id="resultLevelNumber">1</b></div>
           <p id="resultEyebrow" class="eyebrow">NÍVEL CONCLUÍDO</p>
           <h1 id="resultTitle">Parque resolvido!</h1>
           <div id="stars" class="stars">★★★</div>
-          <p>
-            <span id="finalScoreLabel">Pontuação</span> <b id="finalScore">0</b>
-          </p>
-          <button id="next" class="primary">PRÓXIMO NÍVEL</button
-          ><button id="retry" class="secondary">JOGAR NOVAMENTE</button
-          ><button id="resultLevels" class="text-button">ESCOLHER NÍVEL</button>
+          <div class="result-stats">
+            <div><small id="finalScoreLabel">Pontuação</small><b id="finalScore">0</b></div>
+            <div><small id="resultSceneName">Cidade Dino</small><b id="resultSceneIcon">🏙️</b></div>
+          </div>
+          <button id="next" class="primary"><span>▶</span> PRÓXIMO NÍVEL</button
+          ><button id="retry" class="secondary"><span>↻</span> JOGAR NOVAMENTE</button
+          ><button id="resultLevels" class="text-button"><span>▦</span> ESCOLHER NÍVEL</button>
         </div>
       </section>
     </main>
